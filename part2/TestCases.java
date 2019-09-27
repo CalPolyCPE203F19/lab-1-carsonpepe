@@ -32,6 +32,40 @@ public class TestCases
     */
 
    @Test
+   public void testGetY()
+   {
+      assertEquals(2.0, new Point(1.0, 2.0).getY(), DELTA);
+   }
+
+   @Test
+   public void testGetRadius()
+   {
+      assertEquals(5.0, new Point(3.0, 4.0).getRadius(), DELTA);
+   }
+
+   @Test
+   public void testGetAngle()
+   {
+      assertEquals(0.0, new Point(5.2, 0.0).getAngle(), DELTA);
+      assertEquals(Math.PI/2.0, new Point(0.0, 3.3).getAngle(), DELTA);
+      assertEquals(-1*Math.PI/2.0, new Point(0.0, -3.3).getAngle(), DELTA);
+      assertEquals(Math.PI, new Point(-3.3, 0.0).getAngle(), DELTA);
+      assertEquals(1.107148718, new Point(1.0, 2.0).getAngle(), DELTA);
+      assertEquals(2.034443936, new Point(-1.0, 2.0).getAngle(), DELTA);
+      assertEquals(-2.034443936, new Point(-1.0, -2.0).getAngle(), DELTA);
+      assertEquals(-1.107148718, new Point(1.0, -2.0).getAngle(), DELTA);
+   }
+
+   @Test
+   public void testRotate90()
+   {
+      Point p1 = new Point(1.0, 2.0);
+      Point newPt = p1.rotate90();
+      assertEquals(-2.0, newPt.getX(), DELTA);
+      assertEquals(1.0, newPt.getY(), DELTA);
+   }
+
+   @Test
    public void testImplSpecifics()
       throws NoSuchMethodException
    {
